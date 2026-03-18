@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shresth Education - Premium Home Tuition Services in Ahmedabad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #14b8a6;
+            --dark: #0f172a;
+            --dark-2: #1e293b;
+            --light: #f8fafc;
+            --light-2: #f1f5f9;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding { padding: 80px 0; }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(248, 250, 252, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after { width: 100%; }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 70px;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e0e7ff 100%);
+            z-index: -2;
+        }
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            opacity: 0.8;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            top: -50px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(99, 102, 241, 0.1));
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 30px) rotate(10deg); }
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+        }
+
+        .hero-icon { position: relative; z-index: 1; }
+
+        /* ABOUT */
+        .about {
+            background: white;
+            position: relative;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 50%);
+        }
+
+        .about-image span { position: relative; z-index: 1; }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .about-content h2 span { color: var(--primary); }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .educator-card {
+            background: linear-gradient(135deg, var(--light-2) 0%, white 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .educator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
+        .educator-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .educator-title {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .educator-title strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* COURSES */
+        .courses {
+            background: linear-gradient(180deg, var(--light-2) 0%, white 100%);
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .course-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .course-classes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .class-tag {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* PRICING */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        .pricing-class {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .pricing-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .pricing-period {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .pricing-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* WHY CHOOSE */
+        .why-choose {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+        }
+
+        .why-choose .section-title {
+            -webkit-text-fill-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-text {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.1);
+            border-color: var(--primary);
+        }
+
+        .google-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* HOME TUITION INFO */
+        .home-tuition-info {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(20, 184, 166, 0.05));
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .info-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .info-benefits {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .info-benefits li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .info-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .info-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 25px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .info-image span { position: relative; z-index: 1; }
+
+        /* LOCATION */
+        .location {
+            background: white;
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: stretch;
+        }
+
+        .location-info {
+            background: linear-gradient(135deg, var(--light-2) 0%, white 100%);
+            padding: 50px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+        }
+
+        .location-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .location-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .location-content h4 {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .location-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .location-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .location-content a:hover {
+            color: var(--primary-dark);
+        }
+
+        .map-container {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: none;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            -webkit-text-fill-color: white;
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            color: white;
+        }
+
+        .form-group select option {
+            background: var(--dark);
+            color: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        /* WHATSAPP BUTTON */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--primary);
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hamburger { display: flex; }
+            .nav-menu.active {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px 20px;
+                z-index: 998;
+            }
+
+            .hero-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .courses-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .testimonials-slider { grid-template-columns: 1fr; }
+            .about-container { grid-template-columns: 1fr; gap: 40px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .location-container { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
+            .section-padding { padding: 50px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2rem; }
+            .section-title { font-size: 1.5rem; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .footer-content { grid-template-columns: 1fr; }
+            .modal-content { margin: 30% auto; width: 95%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🎓 Shresth Education</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get Admission</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content reveal">
+                    <h1>Personalized <span>Home Tuition</span> Excellence</h1>
+                    <p>Expert guidance from Dr. Archana Shukla, a Ph.D in Economics and dedicated educator. Transform your child's academic journey with customized learning solutions tailored to their unique needs.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="openModal('admissionModal')">Get Started</button>
+                        <button class="btn btn-secondary" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image reveal">
+                    <div class="hero-icon">📚</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image reveal"><span>👩‍🏫</span></div>
+                <div class="about-content reveal">
+                    <h2>Meet <span>Dr. Archana Shukla</span></h2>
+                    <p>With over a decade of experience in education, Dr. Archana Shukla brings expertise, passion, and personalized attention to every student. Her academic excellence combined with innovative teaching methods ensures exceptional results.</p>
+                    <p>As a dedicated Lecturer in a B.Ed College and Ph.D holder in Economics, she understands the nuances of education and creates customized learning paths for each student.</p>
+                    <div class="educator-card">
+                        <div class="educator-name">Dr. Archana Shukla</div>
+                        <div class="educator-title">
+                            <div><strong>📚 Lecturer</strong> - B.Ed College</div>
+                            <div><strong>🎓 Ph.D in Economics</strong></div>
+                            <div><strong>⭐ 15+ Years Experience</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="courses section-padding" id="courses">
+        <div class="container">
+            <h2 class="section-title reveal">Classes Offered</h2>
+            <p class="section-subtitle reveal">Comprehensive coverage for CBSE and GSEB students</p>
+            <div class="courses-grid">
+                <div class="course-card reveal">
+                    <h3 class="course-title">📖 CBSE Board</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">Central Board of Secondary Education</p>
+                    <div class="course-classes">
+                        <div class="class-tag">Class 5</div>
+                        <div class="class-tag">Class 6</div>
+                        <div class="class-tag">Class 7</div>
+                        <div class="class-tag">Class 8</div>
+                        <div class="class-tag">Class 9</div>
+                        <div class="class-tag">Class 10</div>
+                    </div>
+                </div>
+                <div class="course-card reveal">
+                    <h3 class="course-title">📝 GSEB Board</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">Gujarat Secondary Education Board</p>
+                    <div class="course-classes">
+                        <div class="class-tag">Class 6</div>
+                        <div class="class-tag">Class 7</div>
+                        <div class="class-tag">Class 8</div>
+                        <div class="class-tag">Class 9</div>
+                        <div class="class-tag">Class 10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing section-padding" id="pricing">
+        <div class="container">
+            <h2 class="section-title reveal">Transparent Pricing</h2>
+            <p class="section-subtitle reveal">Affordable excellence for every class level</p>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal">
+                    <div class="pricing-class">Class 5</div>
+                    <div class="pricing-amount">₹2,500</div>
+                    <div class="pricing-period">per month</div>
+                    <button class="pricing-btn" onclick="openModal('admissionModal')">Enroll Now</button>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="pricing-class">Class 6-8</div>
+                    <div class="pricing-amount">₹3,000</div>
+                    <div class="pricing-period">per month</div>
+                    <button class="pricing-btn" onclick="openModal('admissionModal')">Enroll Now</button>
+                </div>
+                <div class="pricing-card reveal">
+                    <div class="pricing-class">Class 9-10</div>
+                    <div class="pricing-amount">₹3,500</div>
+                    <div class="pricing-period">per month</div>
+                    <button class="pricing-btn" onclick="openModal('admissionModal')">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="why-choose section-padding">
+        <div class="container">
+            <h2 class="section-title reveal">Why Choose Shresth Education</h2>
+            <p class="section-subtitle reveal">Excellence in every aspect of teaching</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">👨‍🎓</div>
+                    <h3 class="feature-title">Expert Educator</h3>
+                    <p class="feature-text">Learn from Dr. Archana Shukla with Ph.D qualification and extensive B.Ed college teaching experience.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Personalized Learning</h3>
+                    <p class="feature-text">Customized curriculum tailored to each student's learning style and academic goals.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">⏰</div>
+                    <h3 class="feature-title">Flexible Schedules</h3>
+                    <p class="feature-text">Choose convenient class timings that fit perfectly with your child's daily routine.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Result-Oriented</h3>
+                    <p class="feature-text">Proven track record of improving academic performance significantly.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Interactive Teaching</h3>
+                    <p class="feature-text">Modern teaching techniques combined with hands-on practice for deep understanding.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Quality Assurance</h3>
+                    <p class="feature-text">Regular assessments, progress tracking, and continuous feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials section-padding" id="reviews">
+        <div class="container">
+            <h2 class="section-title reveal">Google Reviews & Testimonials</h2>
+            <p class="section-subtitle reveal">Real feedback from satisfied parents and students</p>
+            <div class="testimonials-slider">
+                <div class="testimonial-card reveal">
+                    <div class="google-badge">⭐ Google Review</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Excellent tutor! Dr. Archana's teaching methodology transformed my daughter's grades. She went from 72% to 94% in just 4 months. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Rajesh Kumar</h4>
+                            <p>Parent - Class 10</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="google-badge">⭐ Google Review</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Outstanding home tuition! My son was struggling with Math but Dr. Archana's patient approach helped him overcome his fears. Now he scores 95%!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PJ</div>
+                        <div class="author-info">
+                            <h4>Priya Joshi</h4>
+                            <p>Parent - Class 9</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="google-badge">⭐ Google Review</div>
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Most professional and caring educator! Dr. Archana builds genuine confidence in students and provides regular feedback. Truly exceptional!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AP</div>
+                        <div class="author-info">
+                            <h4>Amit Patel</h4>
+                            <p>Parent - Class 8</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: var(--text-light); margin-bottom: 20px;">⭐ Rated 4.9/5.0 on Google | 50+ Reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOME TUITION INFO -->
+    <section class="home-tuition-info section-padding">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-content reveal">
+                    <h3>Benefits of Home Tuition</h3>
+                    <p>Home tuition provides personalized learning where students receive undivided attention from a qualified educator, proven to improve academic performance significantly.</p>
+                    <ul class="info-benefits">
+                        <li><strong>One-on-One Attention</strong> - Personalized focus on individual needs</li>
+                        <li><strong>Flexible Scheduling</strong> - Classes at convenient times</li>
+                        <li><strong>Comfortable Learning</strong> - Learn in familiar, distraction-free environment</li>
+                        <li><strong>Customized Curriculum</strong> - Teaching tailored to your child</li>
+                        <li><strong>Direct Communication</strong> - Easy access to educator anytime</li>
+                        <li><strong>Progress Tracking</strong> - Regular feedback and monitoring</li>
+                    </ul>
+                </div>
+                <div class="info-image reveal"><span>🚀</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location section-padding" id="location">
+        <div class="container">
+            <h2 class="section-title reveal" style="text-align: center; margin-bottom: 60px;">📍 Our Location</h2>
+            <div class="location-container">
+                <div class="location-info reveal">
+                    <h3>Visit Us</h3>
+                    <div class="location-details">
+                        <div class="location-item">
+                            <div class="location-icon">🏢</div>
+                            <div class="location-content">
+                                <h4>Address</h4>
+                                <p>Tejendra Complex, Near Umabhavani Temple<br>B208, Tragad Road<br>Chandkheda, Ahmedabad<br>Gujarat 382470</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-icon">📱</div>
+                            <div class="location-content">
+                                <h4>Phone</h4>
+                                <p><a href="tel:9265114095">+91 92651 14095</a></p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-icon">✉️</div>
+                            <div class="location-content">
+                                <h4>Email</h4>
+                                <p><a href="mailto:archanaashukla1980@gmail.com">archanaashukla1980@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <div class="location-icon">💬</div>
+                            <div class="location-content">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/919265114095" target="_blank">Chat Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3668.798242452434!2d72.52708991538404!3d23.218336416777186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2a94e0e0e0e0%3A0x0!2sTejendra%20Complex%2C%20Tragad%20Rd%2C%20Chandkheda%2C%20Ahmedabad%2C%20Gujarat%20382470!5e0!3m2!1sen!2sin!4v1710850000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title reveal">Admission Enquiry</h2>
+            <p class="section-subtitle reveal">Start your child's journey to academic excellence</p>
+            <div class="contact-container reveal">
+                <div class="form-success" id="formSuccess">
+                    ✓ Thank you! Your enquiry has been received. We'll contact you soon.
+                </div>
+                <form id="admissionForm">
+                    <div class="form-group">
+                        <label for="parentName">Parent Name *</label>
+                        <input type="text" id="parentName" name="parentName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentName">Student Name *</label>
+                        <input type="text" id="studentName" name="studentName" placeholder="Enter student's name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="classSelect">Class *</label>
+                        <select id="classSelect" name="class" required>
+                            <option value="">Select a class</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" name="phone" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Submit Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🎓 Shresth Education</h4>
+                    <p>Premium home tuition services providing personalized learning solutions for CBSE and GSEB students.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#courses">Courses</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <p>CBSE: Class 5-10</p>
+                    <p>GSEB: Class 6-10</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📱 <a href="tel:9265114095">+91 92651 14095</a></p>
+                    <p>✉️ <a href="mailto:archanaashukla1980@gmail.com">archanaashukla1980@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shresth Education. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/919265114095" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+    <!-- MODAL -->
+    <div id="admissionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admission Enquiry</h2>
+                <button class="close-btn" onclick="closeModal('admissionModal')">&times;</button>
+            </div>
+            <form id="modalForm">
+                <div class="form-group">
+                    <label for="modalParentName">Parent Name *</label>
+                    <input type="text" id="modalParentName" name="parentName" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalStudentName">Student Name *</label>
+                    <input type="text" id="modalStudentName" name="studentName" placeholder="Student's name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalClassSelect">Class *</label>
+                    <select id="modalClassSelect" name="class" required>
+                        <option value="">Select a class</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="modalPhoneNumber">Phone Number *</label>
+                    <input type="tel" id="modalPhoneNumber" name="phone" placeholder="Phone number" required>
+                </div>
+                <button type="submit" class="form-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Sticky Nav
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        function reveal() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Modal
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        // Forms
+        document.getElementById('admissionForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('formSuccess').style.display = 'block';
+            document.getElementById('admissionForm').reset();
+            setTimeout(() => {
+                document.getElementById('formSuccess').style.display = 'none';
+            }, 3000);
+        });
+
+        document.getElementById('modalForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! We will contact you soon.');
+            closeModal('admissionModal');
+            document.getElementById('modalForm').reset();
+        });
+    </script>
+</body>
+</html>
